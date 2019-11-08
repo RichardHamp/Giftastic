@@ -1,5 +1,11 @@
 html {
     background-color: black;
+    background: url(../images/aliens.jpg) center;
+    background-size: 50%;
+}
+
+.contain {
+ width: 90%;
 }
 
 #aSubmit {
@@ -8,27 +14,31 @@ html {
 
 .buttons {
     margin: 3px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .gifs {
     margin: 10px;
-    border: 12px groove rgba(28,110,164,0.44);
+    border: 12px groove rgba(0, 253, 21, 0.44);
     border-radius: 5px 5px 5px 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btn-group {
+    margin-top: 50px;
+    margin-bottom: 30px;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
+    justify-content: center;
 }
 
 .jumbotron {
     background-color:black;
-    background: url(../images/b.jpg) center ;
-    background-size: 19%;
+    background: url(../images/b.jpg) center repeat-x;
+    background-size: 30%;
     margin-bottom:0;
     max-width: 100%;
+    
 }
 
 body {
@@ -36,7 +46,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #000;
-    overflow: hidden;
+   
 }
 
 h1 {
@@ -50,7 +60,7 @@ h1 {
     text-shadow: 0 0 0.15em #4aff03;
     user-select: none;
     white-space: nowrap;
-    filter: blur(0.007em);
+    filter: blur(0.01em);
     animation: shake 2.5s linear forwards;
 }
 
@@ -85,12 +95,12 @@ h1::after {
 
 @keyframes shake {
     5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
-        filter: blur(0.018em);
+        filter: blur(0.030em);
         transform: translateY(0.018em) rotate(0deg);
     }
 
     10%, 30%, 40%, 50%, 70%, 80%, 90% {
-        filter: blur(0.01em);
+        filter: blur(0.03em);
         transform: translateY(-0.018em) rotate(0deg);
     }
 
@@ -105,7 +115,7 @@ h1::after {
     }
 
     100% {
-        filter: blur(0.007em);
+        filter: blur(0.03em);
         transform: translate(0) rotate(-0.5deg);
     }
 }
@@ -154,15 +164,12 @@ h1::after {
     filter: blur(5px);
     width: calc(100% + 4px);
     height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
+    animation: glowing 10s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
     border-radius: 10px;
 }
 
-.glow-on-hover:active {
-    color: #000
-}
 
 .glow-on-hover:active:after {
     background: transparent;
@@ -178,7 +185,7 @@ h1::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: #111;
+    background: rgb(21, 49, 23);
     left: 0;
     top: 0;
     border-radius: 10px;

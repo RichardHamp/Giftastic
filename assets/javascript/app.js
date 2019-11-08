@@ -1,18 +1,18 @@
 $(document).ready(function () {
 
     //global variables
-    var animalArray = ["Climate Change Denial", "Anti-Vax", "Roswell", "Vaccines Cause Autism", "Fluoridation Plot", "Faked Moon Landing", "New World Order", "Denver Airport Conspiracy", "Chemtrails", "Ancient Aliens", "Illuminati",];
+    var crazyArray = ["Climate Change Denial", "Anti-Vax", "Roswell", "Vaccines Cause Autism", "Faked Moon Landing", "Chemtrails", "Ancient Aliens", "Illuminati",];
     var queryURL = "https://api.giphy.com/v1/gifs/search?q="
     var apiKey = "&api_key=Rxfl45R7o45YqIKgQLTGgQ6sYL4inFjm&limit=10";
 
-    //goes through var animalArray and makes a button for each value.
+    //goes through var crazyArray and makes a button for each value.
     function makeButtons() {
         $("#aButton").empty();
-        for (var i = 0; i < animalArray.length; i++) {
-            var but = $('<button class="buttons glow-on-hover">' + (animalArray[i]) + '</button>');
-            but.addClass("animalButton");
-            but.attr("data", animalArray[i]);
-            $("#aButton").append(but);
+        for (var i = 0; i < crazyArray.length; i++) {
+            var but = $('<button class="buttons glow-on-hover">' + (crazyArray[i]) + '</button>');
+            but.addClass("crazyButton");
+            but.attr("data", crazyArray[i]);
+            $("#aButton").prepend(but);
         }
     }
 
@@ -22,17 +22,18 @@ $(document).ready(function () {
     //puts search element into button array above
     $("#aSubmit").click(function (event) {
         event.preventDefault();
-        var animal = $("#aSearch").val();
-        animalArray.push(animal);
+        var crazy = $("#aSearch").val();
+        crazyArray.push(crazy);
         makeButtons();
     });
 
     //pulls gifs from Giphy
-    $(document).on("click", ".animalButton", function () {
+    $(document).on("click", ".crazyButton", function () {
+        $("#aGifs").empty();
         $.ajax({
 
 //PROBLEM BELOW HERE!!!
-            url: (queryURL) + ("Vaccines Cause Autism") + (apiKey),
+            url: (queryURL) + (this.data) + (apiKey),
 //PROBLEM ABOVE HERE!!!
 
             method: "GET",
@@ -43,19 +44,18 @@ $(document).ready(function () {
                 var gifDiv = $("<div class='gifs'>");
                 var gRating = results[i].rating;
                 var p = $("<p>").text("Rating: " + gRating);
-                var animalImage = $("<img>");
-                animalImage.addClass("gif");
-                animalImage.attr("src", results[i].images.fixed_height.url);
-                animalImage.attr("data-still", results[i].images.fixed_height_still.url);
-                animalImage.attr("data-animate", results[i].images.fixed_height.url);
+                var crazyImage = $("<img>");
+                crazyImage.addClass("gif");
+                crazyImage.attr("src", results[i].images.fixed_height.url);
+                crazyImage.attr("data-still", results[i].images.fixed_height_still.url);
+                crazyImage.attr("data-animate", results[i].images.fixed_height.url);
 //BUGS! BUGS! BUGS!
-                animalImage.attr("data-state", "still");
+                crazyImage.attr("data-state", "still");
 //BUGS! BUGS! BUGS
                 gifDiv.prepend(p);
-                gifDiv.prepend(animalImage);
+                gifDiv.prepend(crazyImage);
                 $("#aGifs").prepend(gifDiv);
             };
-
 
             $(".gif").on("click", function () {
                 var state = $(this).attr("data-state");

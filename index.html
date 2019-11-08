@@ -3,42 +3,50 @@
 
 <head>
     <meta charset="UTF 8">
-    <title>Fun With Giphy</title>
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Max is Braindead</title>
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- javascript -->
-    <script src="assets/javascript/app.js"></script>
     <!-- bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-</head>
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- javascript -->
+    <script src="assets/javascript/app.js"></script>
 
+</head>
+<body>
 <container>
-    <!-- animal button group -->
-    <div class="btn-group" role="group" aria-label="Basic example" id="aButton">
+        
+    <div class="jumbotron justify-content-center">
+        <h1 class="display-4" id="mirror" data-text="Shit My Coworker Max Believes"><span>Shit My Coworker Max Believes</span></h1>
+        <br>
+        <br>
+        <!-- animal buttons -->
+        <div class="btn-group" role="group" aria-label="Basic example" id="aButton"></div>
+       
+        <!-- search bar -->
+        <div class="row justify-content-center">
+            <form>
+                <div class="form-row">
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="aSearch" placeholder="Ancient Aliens">
+                    </div>
+                    <div class="col-auto ">
+                        <button type="submit" class="btn btn-primary mb-2" id="aSubmit">Into the Crazy</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </p>
     </div>
     <!-- gif group -->
-    <div class=row>
-        <div class=gifs></div>
-    </div>
-    <!-- search bar -->
-    <div class=row>
-        <form>
-            <div class="form-row align-items-center">
-                <div class="col-auto">
-                    <label class="sr-only" for="inlineFormInput">Animal</label>
-                    <input type="text" class="form-control mb-2" id="aSearch" placeholder="Queejibo">
-                </div>
-                <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2" id="aSubmit">search</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</container>
+    <div class=row id=aGifs></div>
 
+
+</container>
+</body>
 
 </html>
